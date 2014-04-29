@@ -71,3 +71,16 @@ void Entity::name(std::string name) {
 std::string Entity::name() {
 	return mName;
 }
+
+// Clips generation
+void Entity::generateClips()
+{
+	
+}
+
+SDL_Rect Entity::clip(Uint32 ticks) {
+	Uint32 seconds = ticks / 200;
+	Uint32 sprite = seconds % 4;
+	SDL_Rect clip = { sprite * mWidth, 0, mWidth, mHeight };
+	return clip;
+}

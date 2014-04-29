@@ -109,6 +109,7 @@ void Elephant::update()
 	else {
 		// Decelerate top movement
 		mVelY += 0.1;
+		//mVelY = 0;
 		if (mVelY > mMaxVelY) {
 			mVelY = mMaxVelY;
 		}

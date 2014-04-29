@@ -22,7 +22,10 @@ SDL_Renderer *renderer = nullptr;
 SDL_Event e;
 EntityManager entityManager;
 Timer timer; // Timer for events
+SDL_Rect gBubbleSprites[3];
 SDL_Texture *bubbles;
+
+
 int score;
 
 // Generate an item
@@ -49,6 +52,13 @@ void reset()
 	score = 0;
 }
 
+// Load all the files for the game
+void loadMedia()
+{
+	bool loaded = true;
+
+	std::string file = "../res/img/elephant.png";
+}
 int main(int argc, char** argv)
 {
 	// Start SDL window
@@ -89,24 +99,12 @@ int main(int argc, char** argv)
 	// Blocks
 	reset();
 	
-
-	//Set a position to draw it with
-	SDL_Rect pos = { Window::Box().w / 2 - 150 / 2, Window::Box().h / 2 - 150 / 2, 150, 150 };
-
 	//Our event structure
 	SDL_Event e;
 
 	//For tracking if we want to quit
 	bool quit = false;
-
-
-	// Gui positions
-	SDL_Rect gui = { 0.00, 0.00, 150, 10 };
-	SDL_Rect timerPos = { 150.00, 0.00, 30, 10 };
-	SDL_Rect posDebugX = { 320, 0, 50, 15 };
-	SDL_Rect posDebugY = { 380, 0, 50, 15 };
-	SDL_Rect posDebugMouse = { 430, 0, 50, 15 };
-	SDL_Rect posScore = { Window::Box().w / 2 - 50, 0, 100, 32 };
+	Uint32 lastTick = 0;
 
 	while (!quit){
 		//Event Polling
@@ -132,9 +130,9 @@ int main(int argc, char** argv)
 			elephant.handleEvent(e);
 		}
 
-		// Generate new items every 1 second
-		if (timer.Ticks() >= 1000) {
-			timer.Restart();
+		// Generate new items every 0.5 second
+		if (timer.Ticks() - lastTick >= 500) {
+			lastTick = timer.Ticks();
 			if (rand() % 100 <= 30) { // 30% chance of generating
 				generateItem(rand() % 5 + 100);
 			}
@@ -162,46 +160,43 @@ int main(int argc, char** argv)
 			else {
 				itr->second->move();
 
-				Window::Draw(itr->second->texture(), itr->second->position(), NULL);
+				Window::Draw(itr->second->texture(), itr->second->position(), &itr->second->clip(timer.Ticks()));
 
 				// Draw their collision box
-				Window::DrawCollider(itr->second->collider(), 255);
+				//Window::DrawCollider(itr->second->collider(), 255);
 			}
 			itr++;
 		}
 
-
-		// Timer
-		std::stringstream ssTicks;
-		ssTicks << timer.Ticks() % 100;
-		ticks = Window::RenderText(ssTicks.str(), fontFile, white, 9);
-		Window::Draw(ticks, timerPos, NULL);
-
-		
 		// Update the elephant
 		elephant.move();
 		Window::Draw(elephant.texture(), elephant.position());
-		Window::DrawCollider(elephant.collider(), 255);
+		//Window::DrawCollider(elephant.collider(), 255);
 
 
-		// Debug
+		// Timer
+		std::stringstream ssTicks;
+		float ticks = (float) timer.Ticks() / 1000;
+		ticks = floor((ticks * 10) + 0.5) / 10;
+		ssTicks << "Timer: " << ticks;
+		Window::DrawText(ssTicks.str(), fontFile, white, 12, 0, 0);
+
+		// Text preperation
 		std::stringstream ssGuiX, ssGuiY, ssGuiMouse, ssGuiScore;
-		ssGuiX << "VelX: " << elephant.velocityX();
-		guiDebug = Window::RenderText(ssGuiX.str(), fontFile, white, 15);
-		Window::Draw(guiDebug, posDebugX, NULL);
-
-		ssGuiY << "VelY: " << elephant.velocityY();
-		guiDebug = Window::RenderText(ssGuiY.str(), fontFile, white, 15);
-		Window::Draw(guiDebug, posDebugY, NULL);
-
-		ssGuiMouse << "MouX: " << elephant.mouseX();
-		guiDebug = Window::RenderText(ssGuiMouse.str(), fontFile, white, 15);
-		Window::Draw(guiDebug, posDebugMouse, NULL);
 
 		// Score
 		ssGuiScore << "Score: " << score;
-		guiScore = Window::RenderText(ssGuiScore.str(), fontFile, white, 32);
-		Window::Draw(guiScore, posScore, NULL);
+		Window::DrawText(ssGuiScore.str(), fontFile, white, 32, 0, Window::Box().w / 2 - 50);
+
+		// Debug
+		ssGuiX << "VelX: " << elephant.velocityX();
+		Window::DrawText(ssGuiX.str(), fontFile, white, 12, 430, 550);
+
+		ssGuiY << "VelY: " << elephant.velocityY();
+		Window::DrawText(ssGuiY.str(), fontFile, white, 12, 442, 550);
+
+		ssGuiMouse << "MouX: " << elephant.mouseX();
+		Window::DrawText(ssGuiMouse.str(), fontFile, white, 12, 454, 550);
 
 		
 		Window::Present();

@@ -25,6 +25,9 @@ public:
 	void type(int type);
 	int type();
 
+	void generateClips();
+	SDL_Rect clip(Uint32 ticks);
+
 	void name(std::string name);
 	std::string name();
 
@@ -39,6 +42,7 @@ private:
 
 	SDL_Texture* mTexture;
 	SDL_Rect mCollider;
+	SDL_Rect mClips[3];
 
 	bool loaded;
 };

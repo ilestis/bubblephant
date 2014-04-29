@@ -31,6 +31,8 @@ public:
 	//Render some text
 	static SDL_Texture* RenderText(const std::string &message, const std::string &fontFile,
 		SDL_Color color, int fontSize);
+	static void DrawText(const std::string &message, const std::string &fontfile,
+		SDL_Color color, int fontSize, int top, int left);
 	//Clear window
 	static void Clear();
 	//Present renderer

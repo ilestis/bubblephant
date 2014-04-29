@@ -95,13 +95,39 @@ SDL_Texture* Window::RenderText(const std::string &message, const std::string &f
 		throw std::runtime_error("Failed to load font: " + fontFile + TTF_GetError());
 
 	//Render the message to an SDL_Surface, as that's what TTF_RenderText_X returns
-	SDL_Surface *surf = TTF_RenderText_Blended(font, message.c_str(), color);
+	SDL_Surface *surf = TTF_RenderUTF8_Blended(font, message.c_str(), color);
 	SDL_Texture *texture = SDL_CreateTextureFromSurface(mRenderer.get(), surf);
 	//Clean up unneeded stuff
 	SDL_FreeSurface(surf);
 	TTF_CloseFont(font);
 
 	return texture;
+}
+
+void Window::DrawText(const std::string &message, const std::string &font, SDL_Color color, int size,
+	int top, int left)
+{	
+	TTF_Font *ttffont = nullptr;
+	ttffont = TTF_OpenFont(font.c_str(), size);
+	if (ttffont == nullptr)
+		throw std::runtime_error("Failed to load font: " + font + TTF_GetError());
+
+	SDL_Surface *surface = TTF_RenderUTF8_Blended(ttffont, message.c_str(), color);
+	SDL_Texture *texture = SDL_CreateTextureFromSurface(mRenderer.get(), surface);
+
+	SDL_Rect destination = { 0, 0, 0, 0 };
+	destination.x = left;
+	destination.y = top;
+
+	TTF_SizeUTF8(ttffont, message.c_str(), &destination.w, &destination.h);
+	
+	// Draw
+	SDL_RenderCopy(mRenderer.get(), texture, NULL, &destination);
+
+	// Close
+	SDL_FreeSurface(surface);
+	TTF_CloseFont(ttffont);
+
 }
 
 // Clear
