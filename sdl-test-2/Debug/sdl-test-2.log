@@ -1,0 +1,21 @@
+﻿Build started 29.04.2014 14:29:47.
+     1>Project "c:\Users\jeremy\documents\visual studio 2013\Projects\sdl-test-2\sdl-test-2\sdl-test-2.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files\SDL\SDL2-2.0.3-dev\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>c:\users\jeremy\documents\visual studio 2013\projects\sdl-test-2\sdl-test-2\main.cpp(104): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\jeremy\documents\visual studio 2013\projects\sdl-test-2\sdl-test-2\main.cpp(105): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\jeremy\documents\visual studio 2013\projects\sdl-test-2\sdl-test-2\main.cpp(65): warning C4101: 'guiMsg' : unreferenced local variable
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\users\jeremy\documents\visual studio 2013\Projects\sdl-test-2\Debug\sdl-test-2.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files\SDL\SDL2-2.0.3-dev\lib\x86" SDL2.lib SDL2main.lib SDL2_image.lib SDL2_ttf.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"c:\users\jeremy\documents\visual studio 2013\Projects\sdl-test-2\Debug\sdl-test-2.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\users\jeremy\documents\visual studio 2013\Projects\sdl-test-2\Debug\sdl-test-2.lib" /MACHINE:X86 Debug\elephant.obj
+         Debug\entity.obj
+         Debug\entityManager.obj
+         Debug\main.obj
+         Debug\timer.obj
+         Debug\window.obj
+         sdl-test-2.vcxproj -> c:\users\jeremy\documents\visual studio 2013\Projects\sdl-test-2\Debug\sdl-test-2.exe
+     1>Done Building Project "c:\Users\jeremy\documents\visual studio 2013\Projects\sdl-test-2\sdl-test-2\sdl-test-2.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.79
