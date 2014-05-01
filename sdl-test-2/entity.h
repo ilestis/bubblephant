@@ -2,7 +2,7 @@
 #define ENTITY_H
 
 #include <SDL.h>
-#include "window.h"
+#include <string>
 
 class Entity
 {

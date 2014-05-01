@@ -2,7 +2,6 @@
 #define ELEPHANT_H
 
 #include <SDL.h>
-#include "window.h"
 
 class Elephant
 {
