@@ -71,17 +71,23 @@
     <ClCompile Include="elephant.cpp" />
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="entityManager.cpp" />
+    <ClCompile Include="gameengine.cpp" />
+    <ClCompile Include="intro.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="play.cpp" />
+    <ClCompile Include="renderer.cpp" />
     <ClCompile Include="timer.cpp" />
-    <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="elephant.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="entityManager.h" />
-    <ClInclude Include="item.h" />
+    <ClInclude Include="play.h" />
+    <ClInclude Include="gameengine.h" />
+    <ClInclude Include="gamestate.h" />
+    <ClInclude Include="intro.h" />
+    <ClInclude Include="renderer.h" />
     <ClInclude Include="timer.h" />
-    <ClInclude Include="window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

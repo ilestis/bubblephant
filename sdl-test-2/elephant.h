@@ -1,3 +1,6 @@
+#ifndef ELEPHANT_H
+#define ELEPHANT_H
+
 #include <SDL.h>
 #include "window.h"
 
@@ -25,7 +28,7 @@ public:
 	float velocityY();
 	int mouseX();
 
-	bool outOfRange(SDL_Rect box);
+	bool outOfRange(int width, int height);
 	SDL_Rect collider();
 
 	int energy();
@@ -44,3 +47,5 @@ private:
 	SDL_Texture* mTexture;
 	SDL_Rect mCollider;
 };
+
+#endif

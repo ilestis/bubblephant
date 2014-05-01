@@ -1,24 +1,22 @@
-﻿Build started 29.04.2014 23:05:38.
+﻿Build started 30.04.2014 17:27:05.
      1>Project "C:\Users\jeremy\Documents\Visual Studio 2013\Projects\sdl-test-2\sdl-test-2\sdl-test-2.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files\SDL\SDL2-2.0.3-dev\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
-         main.cpp
-     1>c:\users\jeremy\documents\visual studio 2013\projects\sdl-test-2\sdl-test-2\main.cpp(180): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\jeremy\documents\visual studio 2013\projects\sdl-test-2\sdl-test-2\main.cpp(75): warning C4101: 'ticks' : unreferenced local variable
-     1>c:\users\jeremy\documents\visual studio 2013\projects\sdl-test-2\sdl-test-2\main.cpp(75): warning C4101: 'guiScore' : unreferenced local variable
-     1>c:\users\jeremy\documents\visual studio 2013\projects\sdl-test-2\sdl-test-2\main.cpp(75): warning C4101: 'guiMsg' : unreferenced local variable
-     1>c:\users\jeremy\documents\visual studio 2013\projects\sdl-test-2\sdl-test-2\main.cpp(75): warning C4101: 'guiDebug' : unreferenced local variable
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files\SDL\SDL2-2.0.3-dev\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt play.cpp
+         play.cpp
+     1>c:\users\jeremy\documents\visual studio 2013\projects\sdl-test-2\sdl-test-2\play.cpp(150): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\jeremy\Documents\Visual Studio 2013\Projects\sdl-test-2\Debug\sdl-test-2.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files\SDL\SDL2-2.0.3-dev\lib\x86" SDL2.lib SDL2main.lib SDL2_image.lib SDL2_ttf.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\jeremy\Documents\Visual Studio 2013\Projects\sdl-test-2\Debug\sdl-test-2.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\jeremy\Documents\Visual Studio 2013\Projects\sdl-test-2\Debug\sdl-test-2.lib" /MACHINE:X86 Debug\elephant.obj
          Debug\entity.obj
          Debug\entityManager.obj
+         Debug\gameengine.obj
+         Debug\intro.obj
          Debug\main.obj
+         Debug\play.obj
+         Debug\renderer.obj
          Debug\timer.obj
-         Debug\window.obj
-     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
          sdl-test-2.vcxproj -> C:\Users\jeremy\Documents\Visual Studio 2013\Projects\sdl-test-2\Debug\sdl-test-2.exe
      1>Done Building Project "C:\Users\jeremy\Documents\Visual Studio 2013\Projects\sdl-test-2\sdl-test-2\sdl-test-2.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.41
+Time Elapsed 00:00:00.76

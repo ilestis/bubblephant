@@ -169,11 +169,13 @@ int Elephant::mouseX()
 /**
  * Check wether the elephant is out of the window, forcing a game other
  */
-bool Elephant::outOfRange(SDL_Rect box)
+bool Elephant::outOfRange(int width, int height)
 {
-	bool outX = mPosX <= 0 || (mPosX + mWidth >= box.w);
-	return (mPosX <= 0) || (mPosX + mWidth >= box.w) ||
-		(mPosY <= 0) || (mPosY + mHeight >= box.h);
+	int i = mPosX + mWidth;
+	bool b = i >= width;
+	bool outX = mPosX <= 0 || (mPosX + mWidth >= width);
+	return (mPosX <= 0) || (mPosX + mWidth >= width) ||
+		(mPosY <= 0) || (mPosY + mHeight >= height);
 }
 
 void Elephant::reset(int x, int y)
